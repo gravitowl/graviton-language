@@ -13,7 +13,7 @@ All lines should end with a ;. Otherwhise this won't work. Currently, only singl
 ## Table of contents
 
 * [Print](https://github.com/gravitowl/graviton-language#print)
-* Variables
+* [Variables](https://github.com/gravitowl/graviton-language#variables)
 
 ## Print
 
