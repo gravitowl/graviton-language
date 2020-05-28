@@ -4,6 +4,13 @@ Hello! My name is gravitowl, and I like to do stupid stuff. I got this idea from
 
 This project is just basically me, trying to do something cool. It's completely for fun and has no other purpose. If you want to use it for anything, you are free to use it. If you do show it off to any people, please credit me. This won't be any advanced thing, just the basics as it's also a way of me learning some more JS and Node.
 
+## Table of contents
+
+* [About](https://github.com/gravitowl/graviton-language#about)
+* [Important Notes](https://github.com/gravitowl/graviton-language#important_notes)
+* [Documentation](https://github.com/gravitowl/graviton-language#documentation)
+* [Change log](https://github.com/gravitowl/graviton-language#change_log)
+
 # Important Notes
 
 All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported.
