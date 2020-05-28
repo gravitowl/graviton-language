@@ -10,9 +10,9 @@ All lines should end with a ;. Otherwhise this won't work. Currently, only singl
 
 # Documentation
 
-# Table of contents
+## Table of contents
 
-* Print
+* [Print](https://github.com/gravitowl/graviton-language#print)
 * Variables
 
 ## Print
