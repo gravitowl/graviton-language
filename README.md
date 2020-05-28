@@ -7,9 +7,9 @@ This project is just basically me, trying to do something cool. It's completely 
 ## Table of contents
 
 * [About](https://github.com/gravitowl/graviton-language#about)
-* [Important Notes](https://github.com/gravitowl/graviton-language#important_notes)
+* [Important Notes](https://github.com/gravitowl/graviton-language#important-notes)
 * [Documentation](https://github.com/gravitowl/graviton-language#documentation)
-* [Change log](https://github.com/gravitowl/graviton-language#change_log)
+* [Change log](https://github.com/gravitowl/graviton-language#change-log)
 
 # Important Notes
 
