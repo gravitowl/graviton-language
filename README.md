@@ -13,7 +13,7 @@ This project is just basically me, trying to do something cool. It's completely 
 
 # Important Notes
 
-All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported. Variables can not be named after functions. These include things like print, or later on when I add it user made functions.
+All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported. Variables can not be named after functions. These include things like print, or later on when I add it user made functions. You need Node.js in order to run this, get it [here](https://nodejs.org/en/).
 
 # Documentation
 
