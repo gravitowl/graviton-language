@@ -13,7 +13,7 @@ This project is just basically me, trying to do something cool. It's completely 
 
 # Important Notes
 
-All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported.
+All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported. Variables can not be named after functions. These include things like print, or later on when I add it user made functions.
 
 # Documentation
 
@@ -37,11 +37,14 @@ Input: print(X is: {X}); Output: X is 10.
 
 ## Variables
 
-Variables can be used to print custom values, and to give more interaction with the user. Variables are used like this: var (variable name) = (value). The value can be anything, from strings to integers. You don't need "" to specify strings, booleans can be used and integers too.
+Variables can be used to print custom values, and to give more interaction with the user. Variables are used like this: var (variable name) = (value). The value can be anything, from strings to integers. You don't need "" to specify strings, booleans can be used and integers too. To reassign a value of a variable, you do this: (variable name) = (value);
 
 ### Examples:
 
 * We want to set a variable named X to 10:
 Input: var x = 10;
+* We want to set a variable named X to 10, than after that we will set it to 9:
+Input: var x = 10;
+       x = 9;
 
 # Change log
