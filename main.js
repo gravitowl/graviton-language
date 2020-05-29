@@ -1,115 +1,104 @@
 const fs = require('fs');
 
-let varName = ['placeholder'];
-let varValue = [0];
-
-let allCommands = ['print', 'var'];
 let stopLoop = false;
+let fullGton = fs.readFileSync("main.gton", "utf-8");
 
-let fullGtonFile = fs.readFileSync('main.gton', 'utf8');
+//Vars
+let varNames = [];
+let varValues = [];
 
+let functionNames = ["print", "var"];
 
-fullGtonFile = fullGtonFile.replace(/\n|\r/g, "");
+fullGton = fullGton.replace(/(\r\n|\n|\r)/gm, "");
 
+fullGton = fullGton.split(";");
+fullGton.pop();
 
-fullGtonFile = fullGtonFile.split(';');
-fullGtonFile.pop()
+for(let gtonI = 0; gtonI < fullGton.length; gtonI++){
 
-for(let i = 0; i < fullGtonFile.length; i++){
-        if(fullGtonFile[i].startsWith("print")){
-            let tempPrintVar = fullGtonFile[i];
-            tempPrintVar = tempPrintVar.slice(6);
-            tempPrintVar = tempPrintVar.replace(")", "");
-            
-            tempPrintArr = tempPrintVar.split(' ');
+    if(fullGton[gtonI].startsWith("print(")){
+        if(fullGton[gtonI].endsWith(")") == false){
+            console.log(`Error at line ${gtonI + 1}, wrong syntax used.`);
+            stopLoop = true;
+            break;
+        }else{
 
-            for(let j = 0; j < tempPrintArr.length; j++){
-                if(tempPrintArr[j].startsWith("{") && tempPrintArr[j].endsWith("}")){
-                    tempPrintArr[j]  = tempPrintArr[j].replace("{", "");
-                    tempPrintArr[j] = tempPrintArr[j].replace("}", "");
+            let tempPrint = fullGton[gtonI];
 
-                    const tempVarIndex = varName.lastIndexOf(tempPrintArr[j]);
-                    if(tempVarIndex === -1){
-                        console.log(`Error at line ${i + 1}, that var doesn't exist.`)
-                        stopLoop = true;
-                        break;
-                    }else{
+            tempPrint = tempPrint.replace("print(", "");
+            tempPrint = tempPrint.replace(")","");
 
-                        tempPrintArr[j] = varValue[tempVarIndex];
-                        tempPrintVar = tempPrintArr.join(" ");
-                        break;
+            if(tempPrint === ""){
+                console.log(`Error at line ${gtonI + 1}, print statement empty.`);
+                stopLoop = true;
+                break;
+            }else{
+                tempPrint = tempPrint.split("{");
+                for(let i = 0; i < tempPrint.length; i++){
+                    
+                    if(tempPrint[i].endsWith("}")){
+                       if(varNames.lastIndexOf(tempPrint[i].replace("}","")) === -1){
+                           console.log(`Error at line ${gtonI + 1}, var does not exist.`)
+                           stopLoop = true;
+                           break;
+                       }else{
+                           tempPrint[i] = varValues[varNames.lastIndexOf(tempPrint[i].replace("}", ""))];
+                       }
                     }
                 }
 
+                tempPrint = tempPrint.join("");
+                console.log(tempPrint);
             }
-            console.log(tempPrintVar)
         }
+    }
 
-        if(fullGtonFile[i].startsWith("var")){
-            let tempVarVar = fullGtonFile[i];
-
-            tempVarVar = tempVarVar.slice(4);
-            tempVarArr = tempVarVar.split(' ');
-
-            if(tempVarArr[1] !== "="){
-                console.log(`Error at line ${i + 1}, syntax error.`)
-                stopLoop = true;
-            }
-
-            if(tempVarArr.length > 3){
-                console.log(`Error at line ${i + 1}, syntax error.`)
-                stopLoop = true;
-            }
-            tempVarArr.splice(1, 1);
-            
-            for( let i = 0; i < allCommands.length; i++){
-                if(tempVarArr[0] === allCommands[i]){
-                    console.log(`Error at line ${i + 1}, vars can't have the same names as functions.`)
-                    stopLoop = true;
-                    break;
-                }
-            }
-
-            varExisting = varName.lastIndexOf(tempVarArr[0]);
-                if(varExisting === -1){
-                    varName.push(tempVarArr[0]);
-                    varValue.push(tempVarArr[1]);
-                }else{
-                    console.log(`Error at line ${i + 1}, var with the same name already exists.`)
-                    stopLoop = true;
-                }
-            }
-            for(j = 1; j < varName.length; j++){
-                if(fullGtonFile[i].startsWith(varName[j])){
-                    let tempVarVar = fullGtonFile[i];
-
-                    tempVarArr = tempVarVar.split(" ");
-
-                    if(tempVarArr[1] !== "="){
-                        console.log(`Error at line ${i + 1}, syntax error.`)
-                        stopLoop = true;
-                        break;
-                    }
-
-                    if(tempVarArr.length > 3){
-                        console.log(`Error at line ${i + 1}, syntax error.`)
-                        stopLoop = true;
-                        break;
-                    }
-
-                    varValue[varName.lastIndexOf(tempVarArr[0])] = tempVarArr[2]
-                    break;
-                }
-                }
-                if(stopLoop == true){
-                    break;
-            }
-            }
-
-
-
-
-
-
-
+    if(fullGton[gtonI].startsWith("var")){
+        let tempVar = fullGton[gtonI];
+        tempVar = tempVar.replace("var ", "");
+        tempVar = tempVar.split(" ");
         
+        if(tempVar[1] !== "="){
+            console.log(`Error at line ${gtonI + 1}, wrong syntax used.`);
+            stopLoop = true;
+            break;
+        }else if(tempVar > 3){
+            console.log(`Error at line ${gtonI + 1}, wrong syntax used.`);
+            stopLoop = true;
+            break;
+        }else if(varNames.lastIndexOf(tempVar[0]) !== -1){
+            console.log(`Error at line ${gtonI + 1}, var has already been declared.`);
+            stopLoop = true;
+            break;
+        }else if(functionNames.lastIndexOf(tempVar[0]) !== -1){
+            console.log(`Error at line ${gtonI + 1}, var can't be named to a function.`);
+            stopLoop = true;
+            break;
+        }else{
+            varNames.push(tempVar[0]);
+
+            varValues.push(tempVar[2]);
+            }
+    }
+
+   for(let varI = 0; varI < varNames.length; varI ++){
+       if(fullGton[gtonI].startsWith(varNames[varI])){
+           let tempVar = fullGton[gtonI].split(" ");
+
+           if(tempVar[1] !== "="){
+            console.log(`Error at line ${gtonI + 1}, wrong syntax used.`);
+            stopLoop = true;
+            break;
+           }else if(tempVar.length > 3){
+            console.log(`Error at line ${gtonI + 1}, wrong syntax used.`);
+            stopLoop = true;
+            break;
+           }else{
+               varValues[varNames.lastIndexOf(tempVar[0])] = tempVar[2];
+
+           }
+       }
+   }
+
+    if(stopLoop == true){break;}
+}
