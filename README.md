@@ -13,7 +13,7 @@ This project is just basically me, trying to do something cool. It's completely 
 
 # Important Notes
 
-All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported. Variables can not be named after functions. These include things like print, or later on when I add it user made functions. You need Node.js in order to run this, get it [here](https://nodejs.org/en/).
+All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported. Variables can not be named after functions. These include things like print, or later on when I add it user made functions. You need Node.js in order to run this, get it [here](https://nodejs.org/en/). To write code, you need to open the main.gton file in your favorite text editor. If you have written all of your code, type "node ." in the console/terminal. This will run the main.js file, and it will scan your file for possible instructions.
 
 # Documentation
 
