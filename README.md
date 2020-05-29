@@ -13,7 +13,7 @@ This project is just basically me, trying to do something cool. It's completely 
 
 # Important Notes
 
-All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported. Variables can not be named after functions. These include things like print, or later on when I add it user made functions. You need Node.js in order to run this, get it [here](https://nodejs.org/en/). To write code, you need to open the main.gton file in your favorite text editor. If you have written all of your code, type `node .` in the console/terminal. This will run the main.js file, and it will scan your file for possible instructions.
+All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported. Variables can not be named after functions. These include things like print, or later on when I add it user made functions. You need Node.js in order to run this, get it [here](https://nodejs.org/en/). To write code, you need to open the main.gton file in your favorite text editor. If you have written all of your code, make sure your directory is in the same folder as the main.js file., then, type `node .` in the console/terminal. This will run the main.js file, and it will scan your file for possible instructions.
 
 # Documentation
 
@@ -24,7 +24,7 @@ All lines should end with a ;. Otherwhise this won't work. Currently, only singl
 
 ## Print
 
-The print function can be used to log text to the console. The print function is used like this: `print(text);`. There is no need for "" around the text, and variables can be inputed in the text with using {variable name} inside of the ( ).
+The print function can be used to log text to the console. The print function is used like this: `print(text);`. There is no need for "" around the text, and variables can be inputted in the text with using {variable name} inside of the ( ).
 
 #### Examples:
 
@@ -48,3 +48,7 @@ Input: `var x = 10;`
        `x = 9;`
 
 # Change log
+
+### Version 0.01:
+
+Rewritten the entire system. Print function now supports more than 1 variable, and the code is easier to modify to add new functions. Even more errors have been added!
