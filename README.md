@@ -13,7 +13,7 @@ This project is just basically me, trying to do something cool. It's completely 
 
 # Important Notes
 
-All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported. Variables can not be named after functions. These include things like print, or later on when I add it user made functions. You need Node.js in order to run this, get it [here](https://nodejs.org/en/). To write code, you need to open the main.gton file in your favorite text editor. If you have written all of your code, type "node ." in the console/terminal. This will run the main.js file, and it will scan your file for possible instructions.
+All lines should end with a ;. Otherwhise this won't work. Currently, only single line commands are supported. Variables can not be named after functions. These include things like print, or later on when I add it user made functions. You need Node.js in order to run this, get it [here](https://nodejs.org/en/). To write code, you need to open the main.gton file in your favorite text editor. If you have written all of your code, type `node .` in the console/terminal. This will run the main.js file, and it will scan your file for possible instructions.
 
 # Documentation
 
@@ -24,16 +24,16 @@ All lines should end with a ;. Otherwhise this won't work. Currently, only singl
 
 ## Print
 
-The print function can be used to log text to the console. The print function is used like this: print(text);. There is no need for "" around the text, and variables can be inputed in the text with using {variable name} inside of the ( ).
+The print function can be used to log text to the console. The print function is used like this: `print(text);`. There is no need for "" around the text, and variables can be inputed in the text with using {variable name} inside of the ( ).
 
 #### Examples:
 
 * We want to print "Hello World!" to the console:
-Input: print(Hello World!); Output: Hello World!
+Input: `print(Hello World!);` Output: Hello World!
 * We want to print the variable X, that has been pre-set to a value of 10:
-Input: print({X}); Output: 10.
+Input: `print({X});` Output: 10.
 * We want to print the variable X, that has been pre-set to a value of 10 with the text "X is: " in front of it:
-Input: print(X is: {X}); Output: X is 10.
+Input: `print(X is: {X});` Output: X is 10.
 
 ## Variables
 
@@ -42,9 +42,9 @@ Variables can be used to print custom values, and to give more interaction with 
 ### Examples:
 
 * We want to set a variable named X to 10:
-Input: var x = 10;
+Input: `var x = 10;`
 * We want to set a variable named X to 10, than after that we will set it to 9:
-Input: var x = 10;
-       x = 9;
+Input: `var x = 10;`
+       `x = 9;`
 
 # Change log
